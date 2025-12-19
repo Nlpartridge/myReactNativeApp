@@ -1,12 +1,12 @@
 import React from "react";
-import { View, Text, Image, StyleSheet } from "react-natuve";
+import { View, Text, Image, StyleSheet } from "react-native";
 
 export default function CardFront() {
     return (
-        <View style={stylestyles.container}>
+        <View style={styles.container}>
         <Image
         source={require("./progile.jpg")}
-        style={StyleSheet.profileImage}/>
+        style={styles.profileImage}/>
 
         <Text style={styles.name}>Natalia Partridge</Text>
         <Text style={styles.tagline}>Creative, Reliable, Future Developer</Text>
