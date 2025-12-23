@@ -1,10 +1,11 @@
 import React from "react";
 import { SafeAreaView, ScrollView, StyleSheet } from 'react-native';
 import CardFront from "./CardFront";
+import CardBack from "./CardFront";
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.safeArea}>
+    <SafeAreaView style={styles.safeArea}> <CardBack />
     <ScrollView contentContainerStyle={styles.scrollContent}>
       <CardFront />
       </ScrollView>  
@@ -18,5 +19,6 @@ const styles = StyleSheet.create({
   },
  scrollContent: {
   padding: 15,
+  paddingBottom: 32,
  },
 });
