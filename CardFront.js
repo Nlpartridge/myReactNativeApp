@@ -5,7 +5,7 @@ export default function CardFront() {
     return (
         <View style={styles.container}>
         <Image
-        source={require("./progile.jpg")}
+        source={require("./profile.jpg")}
         style={styles.profileImage}/>
 
         <Text style={styles.name}>Natalia Partridge</Text>
