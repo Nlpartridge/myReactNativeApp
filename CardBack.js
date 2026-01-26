@@ -1,8 +1,8 @@
 import React from "react";
-import {View, Text, StyleSheet} from "react-native";
+import {View, Button, Text, StyleSheet} from "react-native";
 import CardList from "./CardList";
 
-export default function CardBack() {
+export default function CardBack({navigation}) {
     return (
         <View style={StyleSheet.container}>
             <Text style={styles.title}>Natalia Partridge</Text>

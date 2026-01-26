@@ -1,7 +1,7 @@
 import React from "react";
-import { View, Text, Image, StyleSheet } from "react-native";
+import { View, Button, Text, Image, StyleSheet } from "react-native";
 
-export default function CardFront() {
+export default function CardFront({ navigation }) {
     return (
         <View style={styles.container}>
         <Image
@@ -15,7 +15,18 @@ export default function CardFront() {
         <Image
         source={require("./disks.png")}
         style={styles.decorativeImage}/>
-
+        <View style={{width:200}}>
+        <Button
+        title="Go to Card Back"
+        onPress={() => navigation.navigate('Back')}
+/>
+        </View>
+          <View style={{width:200}}>
+        <Button
+        title="Go to Card Back"
+        onPress={() => navigation.navigate('Back')}/> 
+        </View>
+        {/* Added the closing tag on line 30 below because it was missing */}
         </View>
     );
 }

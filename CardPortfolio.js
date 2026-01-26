@@ -12,7 +12,7 @@ export default function CardPortfolio() {
         item2: {
             title: 'Project Two',
             image: require('./image2.jpg'),
-            caption: 'A porject I would love to keep working on and advance.'
+            caption: 'A project I would love to keep working on and advance.'
         },
         item3: {
             title: 'Project Three',
