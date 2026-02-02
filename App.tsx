@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import CardFront from "./CardFront";
 import CardBack from "./CardFront";
 import CardPortfolio from './CardPortfolio';
+import CardFetch from "./CardFetch";
 
 const Stack = createNativeStackNavigator(); //ADDED to fix errors
 
@@ -28,6 +29,11 @@ export default function App() {
         options={{title:'Portfolio'}}
         />
         {/* FIXED line 31. Was originally StackActions.Navigator. */}
+        <Stack.Screen
+        name="CardFetch"
+        component={CardFetch}
+        options={{ title: "Weather" }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
