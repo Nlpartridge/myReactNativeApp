@@ -1,5 +1,6 @@
 import React from "react";
-import { SafeAreaView, ScrollView, StyleSheet } from 'react-native';
+import { View, Text, Animated, StyleSheet } from 'react-native';
+import {useRef, useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import CardFront from "./CardFront";
@@ -10,7 +11,16 @@ import CardFetch from "./CardFetch";
 const Stack = createNativeStackNavigator(); //ADDED to fix errors
 
 export default function App() {
+  const fadeAnim = useRef(new Animated.Value(0)).current;
+  useEffect(() => {
+    Animated.timing(fadeAnim, {
+      toValue: 1,
+      duration: 2000,
+      useNativeDriver: true,
+    }).start();
+  }, []);
   return (
+    <Animated.View style={{flex: 1, opacity: fadeAnim }}>
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Front">
         <Stack.Screen
@@ -36,6 +46,7 @@ export default function App() {
         />
       </Stack.Navigator>
     </NavigationContainer>
+    </Animated.View>
   );
 }
 
