@@ -10,8 +10,13 @@ export default function CardBack({navigation}) {
         <View style={styles.listWrapper}>
             <CardList />
         </View>
-
-        </View>
+        <View style={{width:200}}>
+            <Button
+            title="Go to Portfolio"
+            onPress={() => navigation.navigate('Portfolio')}
+            />
+            </View>
+ </View>
     );
 }
 

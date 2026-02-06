@@ -1,8 +1,8 @@
-import { View, Text, Image, Button } from 'react-native';
+import { View, Button } from 'react-native';
 import { useState } from 'react';
 import CardItem from './CardItem';
 
-export default function CardPortfolio() {
+export default function CardPortfolio({navigation}) {
     const ITEMS = {
         item1: {
             title: 'Project One',
@@ -38,6 +38,12 @@ export default function CardPortfolio() {
             caption={ITEMS['item' + nextItem].caption}
             />
             <Button title="Next Project" onPress={handleNextItem} />
+            <View style={{width:200}}>
+            <Button
+            title="Back to About Me"
+            onPress={() => navigation.navigate('Front')}
+            />
+            </View>
         </View>
     );
 }

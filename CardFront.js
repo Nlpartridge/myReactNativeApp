@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Button, Text, Image, StyleSheet } from "react-native";
+import { View, Button } from "react-native";
 
 export default function CardFront({ navigation }) {
     return (
@@ -26,7 +26,6 @@ export default function CardFront({ navigation }) {
         title="Go to Card Back"
         onPress={() => navigation.navigate('Back')}/> 
         </View>
-        {/* Added the closing tag on line 30 below because it was missing */}
         </View>
     );
 }

@@ -1,33 +1,36 @@
 import React from "react";
-import { SafeAreaView, ScrollView, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import CardFront from "./CardFront";
 import CardBack from "./CardFront";
 import CardPortfolio from './CardPortfolio';
+import { StyleSheet } from "react-native";
 
-const Stack = createNativeStackNavigator(); //ADDED to fix errors
+const Stack = createNativeStackNavigator(); 
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Front">
+      <Stack.Navigator initialRouteName="Front"
+      screenOptions={{
+        headerStyle: { backgroundColor: '#1e90ff'},
+        headerTintColor: '#fff'
+      }}>
         <Stack.Screen
         name="Front"
         component={CardFront}
-        options={{title:'Card Front'}}
+        options={{title:'About Me'}}
         />
         <Stack.Screen
         name="Back"
         component={CardBack}
-        options={{title:'Card Back'}}
+        options={{title:'Details'}}
         />
         <Stack.Screen
         name="Portfolio"
         component={CardPortfolio}
         options={{title:'Portfolio'}}
         />
-        {/* FIXED line 31. Was originally StackActions.Navigator. */}
       </Stack.Navigator>
     </NavigationContainer>
   );
