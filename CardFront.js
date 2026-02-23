@@ -1,17 +1,21 @@
 import React from "react";
 import { View, Button, Text, Image, StyleSheet } from "react-native";
+import { ThemeContext} from './ThemeContext';
 
 export default function CardFront({ navigation }) {
+
+    const {darMode, toggleTheme } = useContext(ThemeContext);
+
     return (
-        <View style={styles.container}>
+        <View style={[styles.container, darkMode ? styles.containerDark : styles.containerLight]}>
         <Image
         source={require("./profile.jpg")}
         style={styles.profileImage}/>
 
-        <Text style={styles.name}>Natalia Partridge</Text>
-        <Text style={styles.tagline}>Creative, Reliable, Future Developer</Text>
-        <Text style={styles.info}>402-707-3332</Text>
-        <Text style={styles.info}>partridgenatalia1@gmail.com</Text>
+        <Text style={[styles.name, darkMode ? styles.textDark : styles.textLight]}>Natalia Partridge</Text>
+        <Text style={[styles.tagline, darkMode ? styles.textDark : styles.textLight]}>Creative, Reliable, Future Developer</Text>
+        <Text style={[styles.info, darkMode ? styles.textDark : styles.textLight]}>402-707-3332</Text>
+        <Text style={[styles.info, darkMode ? styles.textDark : styles.textLight]}>partridgenatalia1@gmail.com</Text>
         <Image
         source={require("./disks.png")}
         style={styles.decorativeImage}/>
