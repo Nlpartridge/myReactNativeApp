@@ -1,42 +1,54 @@
-import React from "react";
+import React, { useContext } from "react";
 import { View, Button, Text, Image, StyleSheet } from "react-native";
 import { ThemeContext} from './ThemeContext';
 
 export default function CardFront({ navigation }) {
 
-    const {darMode, toggleTheme } = useContext(ThemeContext);
+    const {darkMode, toggleTheme } = useContext(ThemeContext);
 
     return (
         <View style={[styles.container, darkMode ? styles.containerDark : styles.containerLight]}>
-        <Image
-        source={require("./profile.jpg")}
-        style={styles.profileImage}/>
+            <Image
+                source={require("./profile.jpg")}
+                style={styles.profileImage}/>
 
-        <Text style={[styles.name, darkMode ? styles.textDark : styles.textLight]}>Natalia Partridge</Text>
-        <Text style={[styles.tagline, darkMode ? styles.textDark : styles.textLight]}>Creative, Reliable, Future Developer</Text>
-        <Text style={[styles.info, darkMode ? styles.textDark : styles.textLight]}>402-707-3332</Text>
-        <Text style={[styles.info, darkMode ? styles.textDark : styles.textLight]}>partridgenatalia1@gmail.com</Text>
-        <Image
-        source={require("./disks.png")}
-        style={styles.decorativeImage}/>
-        <View style={{width:200}}>
-        <Button
-        title="Go to Card Back"
-        onPress={() => navigation.navigate('Back')}
-/>
-        </View>
-          <View style={{width:200}}>
-        <Button
-        title="Go to Card Back"
-        onPress={() => navigation.navigate('Back')}/> 
-        </View>
-        {/* Added the closing tag on line 30 below because it was missing */}
+            <Text style={[styles.name, darkMode ? styles.textDark : styles.textLight]}>Natalia Partridge</Text>
+            <Text style={[styles.tagline, darkMode ? styles.textDark : styles.textLight]}>Creative, Reliable, Future Developer</Text>
+            <Text style={[styles.info, darkMode ? styles.textDark : styles.textLight]}>402-707-3332</Text>
+            <Text style={[styles.info, darkMode ? styles.textDark : styles.textLight]}>partridgenatalia1@gmail.com</Text>
+            <Image source={require("./disks.png")} style={styles.decorativeImage}/>
+
+            <View style={styles.buttonRow}>
+                <Button title="Go to Card Back" onPress={() => navigation.navigate('Back')}/>
+            </View>
+
+            <View style={styles.buttonRow}>
+                <Button title="Open Portfolio" onPress={() => navigation.navigate('Portfolio')}/> 
+            </View>
+
+            <View style={styles.buttonRow}>
+                <Button title="Open Weather" onPress={() => navigation.navigate('CardFetch')}/>
+            </View>
+
+            <View style={styles.buttonRow}>
+                <Button title={darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'} onPress={toggleTheme}/>
+            </View>
         </View>
     );
 }
+
 const styles = StyleSheet.create({
     container: {
-        alignItems: "center",
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: 16,
+    },
+    containerDark: {
+        backgroundColor: '#000',
+    },
+    containerLight: {
+        backgroundColor: '#fff',
     },
     profileImage: {
         width: 150,
@@ -62,5 +74,16 @@ const styles = StyleSheet.create({
         height: 100,
         resizeMode: "contain",
         marginTop: 20,
+    },
+    textDark: {
+        color: '#fff',
+    },
+    textLight: {
+        color: '#000',
+    },
+    buttonRow: {
+        marginVertical: 8,
+        width: '100%',
+        paddingHorizontal: 16,
     },
 });

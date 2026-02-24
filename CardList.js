@@ -1,7 +1,9 @@
-import React from "react";
+import React, {useContext} from "react";
 import {View, Text, SectionList, StyleSheet} from "react-native";
+import { ThemeContext } from "./ThemeContext";
 
 export default function CardList(){
+    const {darkMode} = useContext(ThemeContext);
     const sections = [
         {
             title: "Services/Products",
@@ -29,15 +31,15 @@ export default function CardList(){
             sections={sections}
             keyExtractor={(item, index)=> item + index}
             renderSectionHeader={({section}) => (
-                <Text style={StyleSheet.sectionHeader}>{section.title}</Text>
+                <Text style={[styles.sectionHeader, darkMode ? styles.textDark : styles.textLight]}>{section.title}</Text>
             )}
             renderItem={({item}) => (
-                <View style={StyleSheet.itemRow}>
-                    <Text style={StyleSheet.bullet}>*</Text>
-                    <Text style={StyleSheet.itemText}>{item}</Text>
+                <View style={styles.itemRow}>
+                    <Text style={[styles.bullet, darkMode ? styles.textDark : styles.textLight]}>*</Text>
+                    <Text style={[styles.itemText, darkMode ? styles.textDark : styles.textLight]}>{item}</Text>
             </View>
             )}
-            ItemSeparatorComponent={() => <View style={StyleSheet.separator} />}
+            ItemSeparatorComponent={() => <View style={[styles.separator, darkMode ? styles.separatorDark : styles.separatorLight]} />}
         />
         </View>
     );
@@ -66,8 +68,20 @@ const styles = StyleSheet.create ({
         lineHeight: 20,
         flex: 1,
     },
+    textDark: {
+        color: '#fff',
+    },
+    textLight: {
+        color: '#000',
+    },
     separator: {
         height: 1,
         opacity: 0.2,
+    },
+    separatorDark: {
+        backgroundColor: '#fff',
+    },
+    separatorLight: {
+        backgroundColor: '#000',
     },
 });
